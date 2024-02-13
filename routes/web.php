@@ -14,4 +14,4 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::resource('employee', HomeController::class);
+Route::resource('/employee', HomeController::class);
