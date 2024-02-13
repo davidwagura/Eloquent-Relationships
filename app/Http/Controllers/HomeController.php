@@ -11,7 +11,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
+        $data = Employee::with('department')->find(3);
+
+        echo $data->name;
+        echo $data->phone;
+        echo $data->department;
+
     }
 
     /**
