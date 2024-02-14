@@ -12,12 +12,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $data = Employee::with('department')->find(3);
+        $data = Employee::with('department')->find(10);
 
-        // echo $data->name;
-        // echo $data->phone;
-        // echo $data->department;
-        return view ('employee.create');
+        echo $data->name;
+        echo $data->phone;
+        echo $data->department;
 
     }
 
@@ -26,6 +25,8 @@ class HomeController extends Controller
      */
     public function create()
     {
+        return view ('employee.create');
+
     }
 
     /**
@@ -33,7 +34,15 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = new Employee;
+        $employee->department_id = $request->department_id;
+        $employee->name = $request->name;
+        $employee->phone = $request->phone;
+        $employee->save();
+
+
+        return redirect(route("employee.index"));
+
     }
 
     /**
